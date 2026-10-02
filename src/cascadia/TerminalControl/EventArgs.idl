@@ -72,6 +72,8 @@ namespace Microsoft.Terminal.Control
     {
         void HandleClipboardData(String data);
         Boolean BracketedPasteEnabled { get; };
+        // When non-empty, paste this text instead of reading the clipboard.
+        String OverrideText { get; };
     }
 
     runtimeclass OpenHyperlinkEventArgs

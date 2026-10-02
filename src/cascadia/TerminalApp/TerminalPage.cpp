@@ -2959,12 +2959,17 @@ namespace winrt::TerminalApp::implementation
         const auto globalSettings = _settings.GlobalSettings();
         const auto bracketedPaste = eventArgs.BracketedPasteEnabled();
         const auto sourceId = sender.try_as<ControlInteractivity>().Id();
+        const auto overrideText = eventArgs.OverrideText();
 
         // GetClipboardData might block for up to 30s for delay-rendered contents.
         co_await winrt::resume_background();
 
         winrt::hstring text;
-        if (const auto clipboard = clipboard::open(nullptr))
+        if (!overrideText.empty())
+        {
+            text = overrideText;
+        }
+        else if (const auto clipboard = clipboard::open(nullptr))
         {
             text = clipboard::read();
         }

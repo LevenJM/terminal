@@ -87,4 +87,5 @@
     X(bool, ShowMarks, false)                                                                                                                            \
     X(winrt::Microsoft::Terminal::Control::CopyFormat, CopyFormatting, 0)                                                                                \
     X(bool, RightClickContextMenu, false)                                                                                                                \
+    X(bool, MiddleClickPaste, false)                                                                                                                     \
     X(winrt::Microsoft::Terminal::Control::PathTranslationStyle, PathTranslationStyle, winrt::Microsoft::Terminal::Control::PathTranslationStyle::None)

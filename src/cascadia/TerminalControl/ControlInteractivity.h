@@ -141,6 +141,8 @@ namespace winrt::Microsoft::Terminal::Control::implementation
 
         uint64_t _id;
         static std::atomic<uint64_t> _nextId;
+        // X11-style PRIMARY selection, shared by all controls and separate from the clipboard.
+        static winrt::hstring _primarySelection;
 
         unsigned int _numberOfClicks(Core::Point clickPos, Timestamp clickTime);
         void _updateSystemParameterSettings() noexcept;

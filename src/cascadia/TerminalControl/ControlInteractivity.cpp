@@ -26,6 +26,7 @@ static constexpr unsigned int MAX_CLICK_COUNT = 3;
 namespace winrt::Microsoft::Terminal::Control::implementation
 {
     std::atomic<uint64_t> ControlInteractivity::_nextId{ 1 };
+    winrt::hstring ControlInteractivity::_primarySelection;
 
     static constexpr TerminalInput::MouseButtonState toInternalMouseState(const Control::MouseButtonState& state)
     {
@@ -325,6 +326,20 @@ namespace winrt::Microsoft::Terminal::Control::implementation
                 }
             }
         }
+        else if (WI_IsFlagSet(buttonState, MouseButtonState::IsMiddleButtonDown) &&
+                 _core->Settings().MiddleClickPaste())
+        {
+            if (!_primarySelection.empty())
+            {
+                auto args = winrt::make<PasteFromClipboardEventArgs>(
+                    [core = _core](const winrt::hstring& wstr) {
+                        core->PasteText(wstr);
+                    },
+                    _core->BracketedPasteEnabled(),
+                    _primarySelection);
+                PasteFromClipboard.raise(*this, std::move(args));
+            }
+        }
         else if (WI_IsFlagSet(buttonState, MouseButtonState::IsRightButtonDown))
         {
             if (_core->Settings().RightClickContextMenu())
@@ -482,6 +497,14 @@ namespace winrt::Microsoft::Terminal::Control::implementation
         // Only a left click release when copy on select is active should perform a copy.
         // Right clicks and middle clicks should not need to do anything when released.
         const auto isLeftMouseRelease = pointerUpdateKind == WM_LBUTTONUP;
+
+        if (_core->Settings().MiddleClickPaste() && isLeftMouseRelease && _core->HasSelection())
+        {
+            if (auto text = _core->SelectedText(true); !text.empty())
+            {
+                _primarySelection = std::move(text);
+            }
+        }
 
         if (_core->CopyOnSelect() &&
             isLeftMouseRelease &&

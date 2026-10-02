@@ -345,6 +345,7 @@ namespace winrt::Microsoft::Terminal::Settings
         _ShowMarks = Feature_ScrollbarMarks::IsEnabled() && profile.ShowMarks();
 
         _RightClickContextMenu = profile.RightClickContextMenu();
+        _MiddleClickPaste = profile.MiddleClickPaste();
         _RepositionCursorWithMouse = profile.RepositionCursorWithMouse();
         _ReloadEnvironmentVariables = profile.ReloadEnvironmentVariables();
         _RainbowSuggestions = profile.RainbowSuggestions();

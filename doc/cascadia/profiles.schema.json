@@ -2970,6 +2970,11 @@
           "description": "When true, right-click shows a context menu; otherwise, it pastes from the clipboard or copies selection.",
           "type": "boolean"
         },
+        "middleClickPaste": {
+          "default": false,
+          "description": "When true, selecting text stores it in a private primary buffer (the clipboard is untouched) and middle-click pastes that buffer, like X11/Linux terminals.",
+          "type": "boolean"
+        },
         "experimental.repositionCursorWithMouse": {
           "default": false,
           "description": "When set to true, you can move the text cursor by clicking with the mouse on the current commandline. This is an experimental feature - there are lots of edge cases where this will not work as expected.",

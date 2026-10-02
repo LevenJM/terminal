@@ -73,6 +73,7 @@ namespace Microsoft.Terminal.Control
         Boolean ShowMarks { get; };
         Boolean UseBackgroundImageForWindow { get; };
         Boolean RightClickContextMenu { get; };
+        Boolean MiddleClickPaste { get; };
         Boolean RepositionCursorWithMouse { get; };
 
         PathTranslationStyle PathTranslationStyle { get; };

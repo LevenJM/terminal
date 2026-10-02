@@ -97,6 +97,7 @@ Author(s):
     X(Model::BellStyle, BellStyle, "bellStyle", BellStyle::Audible)                                                                                            \
     X(IEnvironmentVariableMap, EnvironmentVariables, "environment", nullptr)                                                                                   \
     X(bool, RightClickContextMenu, "rightClickContextMenu", false)                                                                                             \
+    X(bool, MiddleClickPaste, "middleClickPaste", false)                                                                                                       \
     X(Windows::Foundation::Collections::IVector<IMediaResource>, BellSound, "bellSound", nullptr)                                                              \
     X(bool, Elevate, "elevate", false)                                                                                                                         \
     X(bool, AutoMarkPrompts, "autoMarkPrompts", true)                                                                                                          \

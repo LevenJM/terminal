@@ -86,9 +86,10 @@ namespace winrt::Microsoft::Terminal::Control::implementation
     struct PasteFromClipboardEventArgs : public PasteFromClipboardEventArgsT<PasteFromClipboardEventArgs>
     {
     public:
-        PasteFromClipboardEventArgs(std::function<void(const hstring&)> clipboardDataHandler, bool bracketedPasteEnabled) :
+        PasteFromClipboardEventArgs(std::function<void(const hstring&)> clipboardDataHandler, bool bracketedPasteEnabled, hstring overrideText = {}) :
             m_clipboardDataHandler(clipboardDataHandler),
-            _BracketedPasteEnabled{ bracketedPasteEnabled } {}
+            _BracketedPasteEnabled{ bracketedPasteEnabled },
+            _OverrideText{ std::move(overrideText) } {}
 
         void HandleClipboardData(hstring value)
         {
@@ -96,6 +97,7 @@ namespace winrt::Microsoft::Terminal::Control::implementation
         };
 
         WINRT_PROPERTY(bool, BracketedPasteEnabled, false);
+        WINRT_PROPERTY(hstring, OverrideText);
 
     private:
         std::function<void(const hstring&)> m_clipboardDataHandler;
