@@ -59,6 +59,16 @@
                               Style="{StaticResource ToggleSwitchInExpanderStyle}" />
             </local:SettingContainer>
 
+            <!--  Middle-click Paste  -->
+            <local:SettingContainer x:Name="MiddleClickPaste"
+                                    x:Uid="Profile_MiddleClickPaste"
+                                    ClearSettingValue="{x:Bind Profile.ClearMiddleClickPaste}"
+                                    HasSettingValue="{x:Bind Profile.HasMiddleClickPaste, Mode=OneWay}"
+                                    SettingOverrideSource="{x:Bind Profile.MiddleClickPasteOverrideSource, Mode=OneWay}">
+                <ToggleSwitch IsOn="{x:Bind Profile.MiddleClickPaste, Mode=TwoWay}"
+                              Style="{StaticResource ToggleSwitchInExpanderStyle}" />
+            </local:SettingContainer>
+
             <!--  Snap On Input  -->
             <local:SettingContainer x:Name="SnapOnInput"
                                     x:Uid="Profile_SnapOnInput"

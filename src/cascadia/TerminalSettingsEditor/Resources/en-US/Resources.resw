@@ -729,6 +729,14 @@
     <value>By default, Windows treats Ctrl+Alt as an alias for AltGr. This setting will override Windows' default behavior.</value>
     <comment>A description for what the "AltGr aliasing" setting does. Presented near "Profile_AltGrAliasing.Header". {Locked="Windows"}</comment>
   </data>
+  <data name="Profile_MiddleClickPaste.Header" xml:space="preserve">
+    <value>Middle-click paste</value>
+    <comment>Header for a control to toggle whether selecting text stores it in a private primary buffer that middle-click pastes, like X11/Linux terminals.</comment>
+  </data>
+  <data name="Profile_MiddleClickPaste.HelpText" xml:space="preserve">
+    <value>When on, selecting text stores it in a separate buffer (the clipboard is not changed) and clicking the middle mouse button pastes that buffer.</value>
+    <comment>A description for what the "middle-click paste" setting does. Presented near "Profile_MiddleClickPaste.Header".</comment>
+  </data>
   <data name="Profile_AntialiasingMode.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Text antialiasing</value>
     <comment>Name for a control to select the graphical anti-aliasing format of text.</comment>
