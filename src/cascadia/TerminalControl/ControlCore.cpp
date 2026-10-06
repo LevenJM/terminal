@@ -432,7 +432,7 @@ namespace winrt::Microsoft::Terminal::Control::implementation
                                           Utils::ClampToShortMax(height, 1) };
 
             // TODO:MSFT:20642297 - Support infinite scrollback here, if HistorySize is -1
-            _terminal->Create(viewportSize, Utils::ClampToShortMax(_settings.HistorySize(), 0), *_renderer);
+            _terminal->Create(viewportSize, std::clamp(_settings.HistorySize(), 0, MAXIMUM_BUFFER_HEIGHT), *_renderer);
             _terminal->UpdateSettings(_settings);
 
             // Tell the render engine to notify us when the swap chain changes.

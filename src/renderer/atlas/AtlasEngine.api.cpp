@@ -206,9 +206,9 @@ try
         gsl::narrow<u16>(std::max(1, srNewViewport.right - srNewViewport.left + 1)),
         gsl::narrow<u16>(std::max(1, srNewViewport.bottom - srNewViewport.top + 1)),
     };
-    const u16x2 viewportOffset{
-        gsl::narrow<u16>(srNewViewport.left),
-        gsl::narrow<u16>(srNewViewport.top),
+    const i32x2 viewportOffset{
+        std::max(0, srNewViewport.left),
+        std::max(0, srNewViewport.top),
     };
 
     if (_api.s->viewportCellCount != viewportCellCount)

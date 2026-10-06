@@ -33,6 +33,9 @@ constexpr uint16_t DEFAULT_FONT_WEIGHT = 400; // normal
 constexpr int DEFAULT_ROWS = 30;
 constexpr int DEFAULT_COLS = 120;
 
+// Upper bound for the Terminal's main buffer height (scrollback + viewport).
+constexpr int MAXIMUM_BUFFER_HEIGHT = 10'000'000;
+
 constexpr std::wstring_view DEFAULT_PADDING{ L"8, 8, 8, 8" };
 constexpr std::wstring_view DEFAULT_STARTING_DIRECTORY{ L"%USERPROFILE%" };
 
