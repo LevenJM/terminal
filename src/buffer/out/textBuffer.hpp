@@ -407,7 +407,7 @@ private:
     // The width of the buffer in columns.
     uint16_t _width = 0;
     // The height of the buffer in rows, excluding the scratchpad row.
-    uint16_t _height = 0;
+    til::CoordType _height = 0;
 
     TextAttribute _currentAttributes;
     til::CoordType _firstRow = 0; // indexes top row (not necessarily 0)

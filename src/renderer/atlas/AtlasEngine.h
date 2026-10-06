@@ -181,7 +181,7 @@ namespace Microsoft::Console::Render::Atlas
             i16 scrollOffset = 0;
 
             // The position of the viewport inside the text buffer (in cells).
-            u16x2 viewportOffset{ 0, 0 };
+            i32x2 viewportOffset{ 0, 0 };
         } _api;
     };
 }
